@@ -1,4 +1,4 @@
-import Grid3 from "../components/Grid3"
+import Grid3 from '../components/Grid3'
 
 export default function ReportajesSection() {
   const articles = [
@@ -16,9 +16,18 @@ export default function ReportajesSection() {
     },
   ]
   return (
-    <section>
-      <h2>Reportajes</h2>
-      <Grid3 articles={articles} />
+    <section className="bg-white py-24" id="reportajes">
+      <div className="mx-auto mb-16 max-w-7xl px-6 text-center">
+        <span className="text-brand-accent mb-4 block text-sm font-medium tracking-[0.3em] uppercase">
+          Servicios
+        </span>
+        <h2 className="font-serif text-4xl font-bold md:text-5xl">
+          Nuestros Reportajes
+        </h2>
+      </div>
+      <div className="mx-auto max-w-7xl px-6">
+        <Grid3 articles={articles} />
+      </div>
     </section>
   )
 }
