@@ -1,4 +1,4 @@
-export default function HeroSection() {
+export default function HomeHero() {
   return (
     <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
