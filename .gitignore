@@ -25,3 +25,9 @@ dist-ssr
 
 # Agent Skills
 .agents
+
+# Environment variables
+.env
+
+# Prompts
+__*

@@ -1,6 +1,6 @@
 export default function Grid3({ articles }) {
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
+    <div className="grid grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-12">
       {articles.map(({ title, text }) => (
         <article
           key={title}
