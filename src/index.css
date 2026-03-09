@@ -32,10 +32,20 @@
   }
 
   .btn-primary {
-    @apply bg-brand-primary hover:bg-brand-accent hover:text-brand-primary px-8 py-3 font-medium tracking-wider text-white uppercase transition-all duration-300;
+    @apply bg-brand-primary hover:bg-brand-accent hover:text-brand-primary cursor-pointer px-8 py-3 font-medium tracking-wider text-white uppercase transition-all duration-300;
   }
 
   .btn-outline {
-    @apply border-brand-primary text-brand-primary hover:bg-brand-primary border px-8 py-3 font-medium tracking-wider uppercase transition-all duration-300 hover:text-white;
+    @apply border-brand-primary text-brand-primary hover:bg-brand-primary cursor-pointer border px-8 py-3 font-medium tracking-wider uppercase transition-all duration-300 hover:text-white;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

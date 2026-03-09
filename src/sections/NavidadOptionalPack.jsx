@@ -1,3 +1,5 @@
+import { Gift } from 'lucide-react'
+
 export default function NavidadOptionalPack() {
   const opciones = [
     'Lote de 3 calendarios de faldilla con foto 30x30cm - 19,95€',
@@ -13,20 +15,38 @@ export default function NavidadOptionalPack() {
     'Cuadro con forma (corazón, nube, óvalo, cometa) impresión UVI - 55,00€',
     'Cuadro/Lienzo a consultar tamaños y precios.',
   ]
+
   return (
-    <>
-      <section>
-        <h3>Puedes añadir a tu pack más complementos</h3>
-        <ul>
-          {
-            opciones.map(opcion => (
-                <li>
-                    {opcion}
-                </li>
-            ))
-          }
-        </ul>
-      </section>
-    </>
+    <section className="bg-white py-20">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="mb-10 flex items-center gap-4">
+          <div className="bg-brand-accent/10 flex h-12 w-12 items-center justify-center rounded-full">
+            <Gift size={22} className="text-brand-accent" />
+          </div>
+          <div>
+            <span className="text-brand-accent text-sm font-medium tracking-[0.3em] uppercase">
+              Extras
+            </span>
+            <h3 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
+              Añade complementos a tu pack
+            </h3>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {opciones.map((opcion, i) => (
+            <div
+              key={i}
+              className="border-brand-primary/5 bg-brand-secondary hover:border-brand-accent/30 flex items-start gap-3 rounded-sm border p-4 transition-colors"
+            >
+              <span className="bg-brand-accent mt-1.5 h-2 w-2 flex-none rounded-full" />
+              <span className="text-brand-muted text-sm leading-relaxed font-light">
+                {opcion}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

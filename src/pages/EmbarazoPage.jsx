@@ -1,5 +1,6 @@
-import SpecialSessionsGrid from '../sections/EmbarazoCarouselSection'
 import PageTitleSection from '../sections/PageTitleSection'
+import { carousels } from '../lib/embarazoCarouselGrid.js'
+import CarouselGrid3 from '../components/CarouselGrid3'
 
 export default function EmbarazoPage() {
   return (
@@ -8,7 +9,7 @@ export default function EmbarazoPage() {
         title="Embarazo"
         text="Los reportajes durante la etapa del embarazo son una bonita forma de recordarlo tiempo después. Esas fotos que más adelante verás y enseñarás a tus hijos al hacerse mayores. Son recuerdos imborrables."
       />
-      <SpecialSessionsGrid />
+      <CarouselGrid3 carousels={carousels} />
     </>
   )
 }

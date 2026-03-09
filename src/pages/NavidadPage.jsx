@@ -1,4 +1,5 @@
-import NavidadCarouselSection from '../sections/NavidadCarouselSection'
+import CarouselGrid3 from '../components/CarouselGrid3'
+import { carousels } from '../lib/navidadCarouselGrid'
 import NavidadHero from '../sections/NavidadHero'
 import NavidadMoreInfo from '../sections/NavidadMoreInfo'
 import NavidadOptionalPack from '../sections/NavidadOptionalPack'
@@ -7,7 +8,8 @@ export default function NavidadPage() {
   return (
     <>
       <NavidadHero />
-      <NavidadCarouselSection />
+      <CarouselGrid3 carousels={carousels} />
+      {/* <NavidadCarouselSection /> */}
       <NavidadOptionalPack />
       <NavidadMoreInfo />
     </>
