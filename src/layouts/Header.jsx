@@ -32,9 +32,9 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         isScrolled || isMenuOpen
-          ? 'bg-white/95 py-3 shadow-sm backdrop-blur-md'
-          : 'bg-transparent py-6'
-      }`}
+          ? 'bg-white/95 shadow-sm backdrop-blur-md'
+          : 'bg-transparent'
+      } ${isScrolled ? 'py-3' : 'py-6'}`}
     >
       {/* Top bar – always visible, same title + same hamburger button */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
@@ -75,15 +75,13 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu – slides DOWN from below the header bar */}
+      {/* Mobile Menu – full height slide down */}
       <div
-        className={`overflow-hidden bg-white/95 backdrop-blur-md transition-all duration-500 ease-in-out lg:hidden ${
-          isMenuOpen
-            ? 'border-brand-primary/5 max-h-[80vh] border-t'
-            : 'max-h-0'
+        className={`fixed inset-0 -z-10 flex h-screen w-full flex-col items-center justify-center bg-white/95 backdrop-blur-md transition-all duration-500 ease-in-out lg:hidden ${
+          isMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className="flex flex-col items-center gap-6 py-10">
+        <div className="flex flex-col items-center gap-8">
           {links.map(({ name, href }) => (
             <NavLink
               key={name}
@@ -91,7 +89,7 @@ export default function Header() {
               end={href === '/'}
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
-                `font-serif text-2xl tracking-widest uppercase transition-colors duration-300 ${
+                `font-serif text-3xl tracking-widest uppercase transition-colors duration-300 ${
                   isActive ? 'text-brand-accent' : 'hover:text-brand-accent'
                 }`
               }
