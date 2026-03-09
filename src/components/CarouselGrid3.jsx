@@ -1,6 +1,37 @@
 import Carousel from './Carousel'
 
 export default function CarouselGrid3({ carousels = [] }) {
+  /**
+   * If the text contains periods followed by text, split into bullet points.
+   * Otherwise render as a plain paragraph.
+   */
+  const renderText = (text) => {
+    if (!text) return null
+
+    // Check if text has sentence separators like ". " or " - " or starts with "- "
+    const hasBullets = text.includes('. ') && text.split('. ').length > 2
+
+    if (hasBullets) {
+      const items = text
+        .split('. ')
+        .map((s) => s.replace(/^[-–]\s*/, '').trim())
+        .filter(Boolean)
+
+      return (
+        <ul className="text-brand-muted flex flex-col gap-2 text-sm font-light">
+          {items.map((item, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <span className="bg-brand-accent/50 mt-1.5 h-1.5 w-1.5 flex-none rounded-full" />
+              <span>{item.endsWith('.') ? item : item + '.'}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    return <p className="text-brand-muted leading-relaxed font-light">{text}</p>
+  }
+
   return (
     <section className="bg-brand-secondary py-20">
       <div className="mx-auto max-w-7xl px-6">
@@ -22,11 +53,7 @@ export default function CarouselGrid3({ carousels = [] }) {
                     {carouselData.title}
                   </h3>
                 )}
-                {carouselData.text && (
-                  <p className="text-brand-muted leading-relaxed font-light">
-                    {carouselData.text}
-                  </p>
-                )}
+                {carouselData.text && renderText(carouselData.text)}
               </div>
             </div>
           ))}
