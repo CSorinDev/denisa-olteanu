@@ -35,7 +35,7 @@ export default function CarouselGrid3({ carousels = [] }) {
   return (
     <section className="bg-brand-secondary py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-1 gap-16 xl:grid-cols-3 xl:gap-8">
           {carousels.map((carouselData, index) => (
             <div
               key={index}
