@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-brand-primary pt-20 pb-10 text-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3">
+        <div className="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_auto_1fr]">
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
             <h2 className="font-serif text-3xl font-bold tracking-tighter">
