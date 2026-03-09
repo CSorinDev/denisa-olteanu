@@ -11,10 +11,13 @@
 }
 
 @layer base {
+  html {
+    overflow-y: scroll;
+  }
+
   body {
     @apply bg-brand-secondary text-brand-primary font-sans;
     -webkit-font-smoothing: antialiased;
-    scrollbar-gutter: stable;
   }
 
   h1,

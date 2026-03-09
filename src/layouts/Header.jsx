@@ -30,11 +30,13 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        isScrolled || isMenuOpen
-          ? 'bg-white/95 shadow-sm backdrop-blur-md'
-          : 'bg-transparent'
-      } ${isScrolled ? 'py-3' : 'py-6'}`}
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? 'bg-white/95 py-3 shadow-sm backdrop-blur-md'
+          : isMenuOpen
+            ? 'bg-white/95 py-6 backdrop-blur-md'
+            : 'bg-transparent py-6'
+      }`}
     >
       {/* Top bar – always visible, same title + same hamburger button */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
@@ -77,7 +79,7 @@ export default function Header() {
 
       {/* Mobile Menu – full height slide down */}
       <div
-        className={`fixed inset-0 -z-10 flex h-screen w-full flex-col items-center justify-center bg-white/95 backdrop-blur-md transition-all duration-500 ease-in-out lg:hidden ${
+        className={`fixed inset-0 -z-10 flex h-screen w-full flex-col items-center justify-center bg-white backdrop-blur-md transition-all duration-500 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
