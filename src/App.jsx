@@ -6,6 +6,8 @@ import BebesPage from './pages/BebesPage'
 import ComunionesPage from './pages/ComunionesPage'
 import NavidadPage from './pages/NavidadPage'
 import ContactoPage from './pages/ContactoPage'
+import AvisoLegalPage from './pages/AvisoLegalPage'
+import PrivacidadPage from './pages/PrivacidadPage'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/comuniones" element={<ComunionesPage />} />
         <Route path="/navidad" element={<NavidadPage />} />
         <Route path="/contacto" element={<ContactoPage />} />
+        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
+        <Route path="/politica-privacidad" element={<PrivacidadPage />} />
       </Route>
     </Routes>
   )

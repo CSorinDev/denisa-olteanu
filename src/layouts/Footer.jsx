@@ -137,12 +137,18 @@ export default function Footer() {
             reservados.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-white">
+            <NavLink
+              to="/aviso-legal"
+              className="transition-colors hover:text-white"
+            >
               Aviso Legal
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
+            </NavLink>
+            <NavLink
+              to="/politica-privacidad"
+              className="transition-colors hover:text-white"
+            >
               Política de Privacidad
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
