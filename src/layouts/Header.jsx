@@ -55,14 +55,14 @@ export default function Header() {
         </NavLink>
 
         {/* Desktop Menu */}
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-4 lg:flex">
           {links.map(({ name, href }) => (
             <li key={name}>
               <NavLink
                 to={href}
                 end={href === '/'}
                 className={({ isActive }) =>
-                  `hover:text-brand-accent text-sm font-medium tracking-widest uppercase transition-colors ${
+                  `hover:text-brand-accent p-2 text-sm font-medium tracking-widest uppercase transition-colors ${
                     isActive ? 'text-brand-accent' : 'text-brand-primary'
                   }`
                 }
