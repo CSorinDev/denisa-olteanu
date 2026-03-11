@@ -10,7 +10,7 @@ export default function SobreMiSection() {
               <img
                 src={`${import.meta.env.BASE_URL}do.jpg`}
                 alt="Denisa Olteanu"
-                className="h-full w-full scale-105 object-cover grayscale transition-all duration-700 hover:scale-100 hover:grayscale-0"
+                className="h-full w-full scale-105 object-cover lg:grayscale transition-all duration-700 hover:scale-100 lg:hover:grayscale-0"
               />
             </div>
           </div>
