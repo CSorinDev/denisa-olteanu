@@ -4,7 +4,7 @@ export default function HomeHero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero/hero-image.jpg"
+          src={`${import.meta.env.BASE_URL}hero/hero-image.jpg`}
           alt="Denisa Olteanu Photography"
           className="h-full w-full object-cover"
         />
@@ -14,7 +14,7 @@ export default function HomeHero() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center text-white">
         <img
-          src="/logo-no-bg.png"
+          src={`${import.meta.env.BASE_URL}logo-no-bg.png`}
           alt="Denisa Olteanu"
           className="mx-auto mb-8 h-24 w-auto brightness-0 invert"
         />

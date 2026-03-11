@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
             <img
-              src="/logo-no-bg.png"
+              src={`${import.meta.env.BASE_URL}logo-no-bg.png`}
               alt="Denisa Olteanu Photography"
               className="h-16 w-fit brightness-0 invert"
             />

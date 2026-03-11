@@ -46,7 +46,7 @@ export default function Header() {
           className="transition-opacity hover:opacity-80"
         >
           <img
-            src="/logo-no-bg.png"
+            src={`${import.meta.env.BASE_URL}logo-no-bg.png`}
             alt="Denisa Olteanu Photography"
             className={`transition-all duration-300 ${
               isScrolled ? 'h-10' : 'h-14'

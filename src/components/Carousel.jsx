@@ -10,9 +10,22 @@ export default function Carousel({ images }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const joinPaths = (base, path) => {
-    const b = base.endsWith('/') ? base.slice(0, -1) : base
-    const p = path.startsWith('/') ? path : '/' + path
-    return b + p
+    // Determine the application's base URL (e.g., '/' or '/denisa-olteanu/')
+    const appBase = import.meta.env.BASE_URL || '/'
+
+    // Normalize base: remove leading slash if any, ensuring it starts from appBase
+    const normalizedBase = base.startsWith('/') ? base.slice(1) : base
+    const b = normalizedBase.endsWith('/')
+      ? normalizedBase
+      : normalizedBase + '/'
+
+    // Normalize path: remove leading slash
+    const p = path.startsWith('/') ? path.slice(1) : path
+
+    // Ensure appBase ends with /
+    const root = appBase.endsWith('/') ? appBase : appBase + '/'
+
+    return root + b + p
   }
 
   const updateScrollState = () => {

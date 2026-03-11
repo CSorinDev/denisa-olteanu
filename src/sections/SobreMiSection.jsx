@@ -8,7 +8,7 @@ export default function SobreMiSection() {
             <div className="border-brand-accent/30 absolute -inset-4 translate-x-4 translate-y-4 border transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
             <div className="relative aspect-4/5 overflow-hidden shadow-2xl">
               <img
-                src="/do.jpg"
+                src={`${import.meta.env.BASE_URL}do.jpg`}
                 alt="Denisa Olteanu"
                 className="h-full w-full scale-105 object-cover grayscale transition-all duration-700 hover:scale-100 hover:grayscale-0"
               />

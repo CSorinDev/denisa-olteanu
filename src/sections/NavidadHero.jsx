@@ -4,7 +4,7 @@ export default function NavidadHero() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero/navidad-hero.webp"
+          src={`${import.meta.env.BASE_URL}hero/navidad-hero.webp`}
           alt="Mini-Sesiones de Navidad"
           className="h-full w-full object-cover"
         />
