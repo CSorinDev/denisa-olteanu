@@ -48,11 +48,25 @@ export default function CarouselGrid3({ carousels = [] }) {
 
               {/* Text content */}
               <div className="flex grow flex-col gap-4 p-6 lg:p-8">
-                {carouselData.title && (
-                  <h3 className="font-serif text-2xl font-bold tracking-tight lg:text-xl xl:text-2xl">
-                    {carouselData.title}
-                  </h3>
-                )}
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+                  {carouselData.title && (
+                    <h3 className="font-serif text-2xl font-bold tracking-tight lg:text-xl xl:text-2xl">
+                      {carouselData.title}
+                    </h3>
+                  )}
+                  {carouselData.price && (
+                    <div className="bg-brand-accent/15 inline-flex items-baseline gap-1 rounded-full px-4 py-1.5 transition-transform group-hover:scale-105">
+                      {carouselData.price.includes('Desde') && (
+                        <span className="text-brand-accent/70 text-xs font-medium uppercase tracking-tighter">
+                          Desde
+                        </span>
+                      )}
+                      <span className="text-brand-accent font-serif text-2xl font-bold">
+                        {carouselData.price.replace('Desde ', '')}
+                      </span>
+                    </div>
+                  )}
+                </div>
                 {carouselData.text && renderText(carouselData.text)}
               </div>
             </div>
