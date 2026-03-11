@@ -93,7 +93,7 @@ export default function Carousel({ images }) {
       </div>
 
       {/* Desktop arrow buttons – only visible on md+ */}
-      {canScrollLeft && (
+      {canScrollLeft && IMAGES_LIST.length > 1 && (
         <button
           onClick={() => scroll('left')}
           className="hover:bg-brand-accent absolute top-1/2 left-2 z-10 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-2.5 shadow-lg backdrop-blur-sm transition-all duration-300 hover:text-white md:flex"
@@ -102,7 +102,7 @@ export default function Carousel({ images }) {
           <ChevronLeft size={22} />
         </button>
       )}
-      {canScrollRight && (
+      {canScrollRight && IMAGES_LIST.length > 1 && (
         <button
           onClick={() => scroll('right')}
           className="hover:bg-brand-accent absolute top-1/2 right-2 z-10 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-2.5 shadow-lg backdrop-blur-sm transition-all duration-300 hover:text-white md:flex"
@@ -138,7 +138,7 @@ export default function Carousel({ images }) {
 
       {/* Gradient fades */}
       <div className="from-brand-secondary pointer-events-none absolute top-0 bottom-6 left-0 w-8 bg-linear-to-r to-transparent md:w-16" />
-      <div className="from-brand-secondary pointer-events-none absolute top-0 right-0 bottom-6 w-8 bg-linear-to-r to-transparent md:w-16" />
+      <div className="from-brand-secondary pointer-events-none absolute top-0 right-0 bottom-6 w-8 bg-linear-to-l to-transparent md:w-16" />
     </div>
   )
 }
