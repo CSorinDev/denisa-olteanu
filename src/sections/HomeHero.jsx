@@ -6,7 +6,7 @@ export default function HomeHero() {
         <img
           src={`${import.meta.env.BASE_URL}hero/hero-image.jpg`}
           alt="Denisa Olteanu Photography"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-[20%]"
         />
         <div className="bg-brand-primary/30 absolute inset-0 mix-blend-multiply" />
       </div>
