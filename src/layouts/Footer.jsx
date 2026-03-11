@@ -13,7 +13,7 @@ export default function Footer() {
             <img
               src={`${import.meta.env.BASE_URL}logo-no-bg.png`}
               alt="Denisa Olteanu Photography"
-              className="h-16 w-fit brightness-0 invert"
+              className="h-16 aspect-square w-fit brightness-0 invert"
             />
             <p className="text-brand-muted/80 leading-relaxed font-light">
               Capturando la esencia de cada momento. Especialista en fotografía
