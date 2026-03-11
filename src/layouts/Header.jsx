@@ -43,9 +43,15 @@ export default function Header() {
         <NavLink
           to="/"
           onClick={() => setIsMenuOpen(false)}
-          className="hover:text-brand-accent font-serif text-2xl font-bold tracking-tighter transition-colors"
+          className="transition-opacity hover:opacity-80"
         >
-          DENISA OLTEANU
+          <img
+            src="/logo-no-bg.png"
+            alt="Denisa Olteanu Photography"
+            className={`transition-all duration-300 ${
+              isScrolled ? 'h-10' : 'h-14'
+            }`}
+          />
         </NavLink>
 
         {/* Desktop Menu */}

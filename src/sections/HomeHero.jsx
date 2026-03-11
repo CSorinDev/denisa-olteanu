@@ -13,6 +13,11 @@ export default function HomeHero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center text-white">
+        <img
+          src="/logo-no-bg.png"
+          alt="Denisa Olteanu"
+          className="mx-auto mb-8 h-24 w-auto brightness-0 invert"
+        />
         <h1 className="mb-6 font-serif text-5xl font-bold tracking-tight drop-shadow-2xl md:text-7xl lg:text-8xl">
           Denisa Olteanu <br />
           <span className="text-brand-accent font-normal italic">

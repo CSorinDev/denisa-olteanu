@@ -10,9 +10,11 @@ export default function Footer() {
         <div className="mb-16 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_auto_1fr]">
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
-            <h2 className="font-serif text-3xl font-bold tracking-tighter">
-              DENISA OLTEANU
-            </h2>
+            <img
+              src="/logo-no-bg.png"
+              alt="Denisa Olteanu Photography"
+              className="h-16 w-fit brightness-0 invert"
+            />
             <p className="text-brand-muted/80 leading-relaxed font-light">
               Capturando la esencia de cada momento. Especialista en fotografía
               de embarazo, bebés y familias en Castellón.
