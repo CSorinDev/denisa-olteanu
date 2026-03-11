@@ -5,7 +5,15 @@ class ContactController {
    * Maneja el envío del formulario de contacto
    */
   async handleContactForm(req, res) {
-    const { name, email, message } = req.body
+    const { name, email, message, website } = req.body
+
+    // Honeypot check: if 'website' is filled, it's likely a bot
+    if (website) {
+      console.log('Bot detected via honeypot')
+      return res
+        .status(200)
+        .json({ success: true, message: 'Message filtered' })
+    }
 
     // Validación básica
     if (!name || !email || !message) {

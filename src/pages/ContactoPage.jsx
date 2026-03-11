@@ -175,6 +175,18 @@ export default function ContactoPage() {
                   />
                 </div>
 
+                {/* Honeypot field (hidden from users) */}
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex="-1"
+                    autoComplete="off"
+                    onChange={handleChange}
+                    value={formData.website || ''}
+                  />
+                </div>
+
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="email"

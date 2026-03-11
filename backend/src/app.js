@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
 const contactController = require('./controllers/ContactController')
+const contactLimiter = require('./middlewares/rateLimiter')
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -15,7 +16,7 @@ app.use(
 app.use(express.json())
 
 // Routes
-app.post('/api/contact', (req, res) =>
+app.post('/api/contact', contactLimiter, (req, res) =>
   contactController.handleContactForm(req, res)
 )
 
