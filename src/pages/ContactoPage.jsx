@@ -1,5 +1,5 @@
 import PageTitleSection from '../sections/PageTitleSection'
-import ContactForm from '../components/ContactForm'
+import ContactForm from '../forms/ContactForm'
 import ContactInfo from '../components/ContactInfo'
 
 export default function ContactoPage() {
