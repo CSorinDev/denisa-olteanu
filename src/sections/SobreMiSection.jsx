@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 export default function SobreMiSection() {
   return (
     <section className="overflow-hidden bg-white py-24" id="sobre-mi">
@@ -48,13 +50,13 @@ export default function SobreMiSection() {
             </div>
 
             <div className="pt-4">
-              <a
-                href="/contacto"
+              <Link
+                to="/contacto"
                 className="text-brand-primary group inline-flex items-center gap-4 font-semibold tracking-widest uppercase"
               >
                 <span className="bg-brand-accent h-px w-8 transition-all duration-300 group-hover:w-16" />
                 Trabajemos Juntos
-              </a>
+              </Link>
             </div>
           </div>
         </div>

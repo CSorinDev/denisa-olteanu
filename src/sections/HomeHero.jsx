@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 export default function HomeHero() {
   return (
     <section className="relative flex h-[80vh] items-center justify-center overflow-hidden">
@@ -34,12 +36,12 @@ export default function HomeHero() {
           >
             Ver Sesiones
           </a>
-          <a
-            href="/contacto"
+          <Link
+            to="/contacto"
             className="hover:text-brand-primary border border-white px-8 py-3 font-medium tracking-widest text-white uppercase transition-all duration-300 hover:bg-white"
           >
             Reservar Ahora
-          </a>
+          </Link>
         </div>
       </div>
 

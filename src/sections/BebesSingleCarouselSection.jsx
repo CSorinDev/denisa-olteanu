@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import Carousel from '../components/Carousel'
 
 export default function BebesSingleCarouselSection() {
@@ -34,9 +35,9 @@ export default function BebesSingleCarouselSection() {
               descubrir matices de su personalidad. Preciosos recuerdos
               recomendados para toda la familia.
             </p>
-            <a href="/contacto" className="btn-primary mt-4 w-fit">
+            <Link to="/contacto" className="btn-primary mt-4 w-fit">
               Reservar Sesión
-            </a>
+            </Link>
           </div>
         </div>
       </div>

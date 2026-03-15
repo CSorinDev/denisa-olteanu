@@ -1,15 +1,20 @@
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
 import { Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 import { handleSendMessage } from '../actions/contactAction'
 
 export default function ContactForm() {
+  const [formKey, setFormKey] = useState(0)
   const [state, formAction, isPending] = useActionState(
     handleSendMessage,
     null
   )
 
+  const handleReset = () => {
+    setFormKey(prev => prev + 1)
+  }
+
   return (
-    <div className="border-brand-primary/10 bg-brand-secondary rounded-sm border p-8 shadow-sm md:p-12">
+    <div key={formKey} className="border-brand-primary/10 bg-brand-secondary rounded-sm border p-8 shadow-sm md:p-12">
       <span className="text-brand-accent mb-3 block text-sm font-medium tracking-[0.3em] uppercase">
         Formulario
       </span>
@@ -27,7 +32,7 @@ export default function ContactForm() {
             Gracias por contactarnos. Te responderemos lo antes posible.
           </p>
           <button
-            onClick={() => window.location.reload()}
+            onClick={handleReset}
             className="btn-outline mt-4"
           >
             Enviar otro mensaje

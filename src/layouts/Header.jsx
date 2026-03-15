@@ -2,18 +2,19 @@ import { NavLink } from 'react-router'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
+const links = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Embarazo', href: '/embarazo' },
+  { name: 'Bebés', href: '/bebes' },
+  { name: 'Comuniones', href: '/comuniones' },
+  { name: 'Navidad', href: '/navidad' },
+  { name: 'Contacto', href: '/contacto' },
+]
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const links = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Embarazo', href: '/embarazo' },
-    { name: 'Bebés', href: '/bebes' },
-    { name: 'Comuniones', href: '/comuniones' },
-    { name: 'Navidad', href: '/navidad' },
-    { name: 'Contacto', href: '/contacto' },
-  ]
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
