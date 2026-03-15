@@ -1,9 +1,9 @@
 /**
  * Base Abstrata para servicios de Email
  */
-class BaseEmailService {
+export default class BaseMailerService {
   constructor() {
-    if (this.constructor === BaseEmailService) {
+    if (this.constructor === BaseMailerService) {
       throw new Error('No puedes instanciar una clase abstracta.')
     }
   }
@@ -111,5 +111,3 @@ class BaseEmailService {
     `
   }
 }
-
-module.exports = BaseEmailService

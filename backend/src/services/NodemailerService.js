@@ -1,8 +1,9 @@
 import { createTransport } from 'nodemailer'
-import BaseEmailService from './BaseEmailService'
-require('dotenv').config()
+import BaseMailerService from './BaseEmailService.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
-class NodemailerService extends BaseEmailService {
+class NodemailerService extends BaseMailerService {
   constructor() {
     super()
     this.transporter = createTransport({
@@ -39,5 +40,4 @@ class NodemailerService extends BaseEmailService {
   }
 }
 
-// Exportamos una instancia única (Singleton)
 export default new NodemailerService()

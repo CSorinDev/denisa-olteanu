@@ -1,8 +1,9 @@
-const express = require('express')
-const cors = require('cors')
-require('dotenv').config()
-const contactController = require('./controllers/ContactController').default
-const contactLimiter = require('./middlewares/rateLimiter').default
+import cors from 'cors'
+import dotenv from 'dotenv'
+import express, { json } from 'express'
+import contactLimiter from './middlewares/rateLimiter.js'
+import contactController from './controllers/ContactController.js'
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -13,12 +14,12 @@ app.use(
     origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
   })
 )
-app.use(express.json())
+app.use(json())
 
 // Routes
-app.post('/api/contact', contactLimiter, (req, res) =>
+app.post('/api/contact', contactLimiter, (req, res) => {
   contactController.handleContactForm(req, res)
-)
+})
 
 // Health check
 app.get('/health', (req, res) => res.send('Backend is running!'))

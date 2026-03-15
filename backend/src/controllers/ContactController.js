@@ -1,10 +1,10 @@
-import sendEmail from '../services/NodemailerService'
+import NodemailerService from '../services/NodemailerService.js'
 
-class ContactController {
+export default class ContactController {
   /**
    * Maneja el envío del formulario de contacto
    */
-  async handleContactForm(req, res) {
+  static async handleContactForm(req, res) {
     const { name, email, message, website } = req.body
 
     // Honeypot check: if 'website' is filled, it's likely a bot
@@ -24,7 +24,7 @@ class ContactController {
     }
 
     try {
-      const result = await sendEmail({ name, email, message })
+      const result = await NodemailerService.sendEmail({ name, email, message })
       return res.status(200).json(result)
     } catch (error) {
       return res.status(500).json({
@@ -34,5 +34,3 @@ class ContactController {
     }
   }
 }
-
-export default new ContactController()
