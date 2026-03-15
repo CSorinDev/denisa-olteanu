@@ -1,4 +1,4 @@
-import { sendEmail } from '../services/NodemailerService'
+import sendEmail from '../services/NodemailerService'
 
 class ContactController {
   /**
