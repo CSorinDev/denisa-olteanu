@@ -1,4 +1,4 @@
-const emailService = require('../services/NodemailerService')
+import { sendEmail } from '../services/NodemailerService'
 
 class ContactController {
   /**
@@ -24,7 +24,7 @@ class ContactController {
     }
 
     try {
-      const result = await emailService.sendEmail({ name, email, message })
+      const result = await sendEmail({ name, email, message })
       return res.status(200).json(result)
     } catch (error) {
       return res.status(500).json({
@@ -35,4 +35,4 @@ class ContactController {
   }
 }
 
-module.exports = new ContactController()
+export default new ContactController()

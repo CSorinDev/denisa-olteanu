@@ -1,11 +1,11 @@
-const nodemailer = require('nodemailer')
-const BaseEmailService = require('./BaseEmailService')
+import { createTransport } from 'nodemailer'
+import BaseEmailService from './BaseEmailService'
 require('dotenv').config()
 
 class NodemailerService extends BaseEmailService {
   constructor() {
     super()
-    this.transporter = nodemailer.createTransport({
+    this.transporter = createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
@@ -40,4 +40,4 @@ class NodemailerService extends BaseEmailService {
 }
 
 // Exportamos una instancia única (Singleton)
-module.exports = new NodemailerService()
+export default new NodemailerService()

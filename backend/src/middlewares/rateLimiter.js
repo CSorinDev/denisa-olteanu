@@ -1,4 +1,4 @@
-const rateLimit = require('express-rate-limit')
+import rateLimit from 'express-rate-limit'
 
 // Rate limiting: 5 requests per hour per IP
 const contactLimiter = rateLimit({
@@ -13,4 +13,4 @@ const contactLimiter = rateLimit({
   legacyHeaders: false,
 })
 
-module.exports = contactLimiter
+export default contactLimiter
