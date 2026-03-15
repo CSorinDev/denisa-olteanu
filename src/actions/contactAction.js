@@ -1,37 +1,27 @@
+import { ContactService } from '../services/ContactService'
+
 export async function handleSendMessage(prevState, formData) {
-  // Honeypot check
+  // 1. Lógica de validación previa (Honeypot)
   if (formData.get('website')) {
     return { success: true }
   }
 
-  const name = formData.get('name')
-  const email = formData.get('email')
-  const message = formData.get('message')
+  // 2. Extracción de datos
+  const payload = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    message: formData.get('message')
+  }
 
+  // 3. Delegación al Servicio
   try {
-    const response = await fetch('http://localhost:3001/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, message }),
-    })
-
-    const data = await response.json()
-
-    if (data.success) {
-      return { success: true }
-    } else {
-      return { 
-        success: false, 
-        error: data.error || 'Hubo un problema al enviar el mensaje.' 
-      }
-    }
+    await ContactService.sendMessage(payload)
+    return { success: true }
   } catch (error) {
-    console.error('Error:', error)
-    return { 
-      success: false, 
-      error: 'Error de conexión. Por favor, inténtalo de nuevo más tarde.' 
+    console.error('Action Error:', error)
+    return {
+      success: false,
+      error: error.message || 'Error de conexión. Por favor, inténtalo más tarde.'
     }
   }
 }
