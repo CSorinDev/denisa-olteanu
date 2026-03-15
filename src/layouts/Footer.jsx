@@ -1,7 +1,8 @@
-import { Mail, Clock, Phone, MapPin, Instagram, Facebook } from 'lucide-react'
+import { Mail, Clock, Phone, MapPin } from 'lucide-react'
 import { NavLink } from 'react-router'
 import { NAV_LINKS } from '../constants/navigation'
 import { CONTACT_INFO } from '../constants/contactInfo'
+import { FacebookIcon, InstagramIcon } from '../assets/Icons'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -15,7 +16,7 @@ export default function Footer() {
             <img
               src={`${import.meta.env.BASE_URL}logo-no-bg.png`}
               alt="Denisa Olteanu Photography"
-              className="h-16 aspect-square w-fit brightness-0 invert"
+              className="aspect-square h-16 w-fit brightness-0 invert"
             />
             <p className="text-brand-muted/80 leading-relaxed font-light">
               Capturando la esencia de cada momento. Especialista en fotografía
@@ -24,19 +25,25 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href={CONTACT_INFO.social.instagram}
-                className="hover:bg-brand-accent hover:border-brand-accent flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300"
+                className="hover:bg-brand-accent hover:border-brand-accent group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram size={18} />
+                <InstagramIcon
+                  size={18}
+                  className="fill-brand-secondary group-hover:fill-brand-primary transition-all duration-300"
+                />
               </a>
               <a
                 href={CONTACT_INFO.social.facebook}
-                className="hover:bg-brand-accent hover:border-brand-accent flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300"
+                className="hover:bg-brand-accent hover:border-brand-accent group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Facebook size={18} />
+                <FacebookIcon
+                  size={18}
+                  className="fill-brand-secondary group-hover:fill-brand-primary transition-all duration-300"
+                />
               </a>
             </div>
           </div>
@@ -47,7 +54,7 @@ export default function Footer() {
               Explorar
             </h3>
             <ul className="flex flex-col gap-3 font-light">
-              {NAV_LINKS.filter(l => l.href !== '/').map(({ name, href }) => (
+              {NAV_LINKS.filter((l) => l.href !== '/').map(({ name, href }) => (
                 <li key={name}>
                   <NavLink
                     to={href}
@@ -116,8 +123,9 @@ export default function Footer() {
 
         <div className="text-brand-muted/60 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs tracking-widest uppercase md:flex-row">
           <p>
-            © {currentYear} {import.meta.env.VITE_SITE_NAME || 'Denisa Olteanu Photography'}. Todos los derechos
-            reservados.
+            © {currentYear}{' '}
+            {import.meta.env.VITE_SITE_NAME || 'Denisa Olteanu Photography'}.
+            Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
             <NavLink
