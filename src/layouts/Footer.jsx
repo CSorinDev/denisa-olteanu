@@ -1,5 +1,7 @@
 import { Mail, Clock, Phone, MapPin, Instagram, Facebook } from 'lucide-react'
 import { NavLink } from 'react-router'
+import { NAV_LINKS } from '../constants/navigation'
+import { CONTACT_INFO } from '../constants/contactInfo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -21,7 +23,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/denisaolteanuphotography"
+                href={CONTACT_INFO.social.instagram}
                 className="hover:bg-brand-accent hover:border-brand-accent flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -29,7 +31,7 @@ export default function Footer() {
                 <Instagram size={18} />
               </a>
               <a
-                href="https://www.facebook.com/Denisa.N.O.Illustration"
+                href={CONTACT_INFO.social.facebook}
                 className="hover:bg-brand-accent hover:border-brand-accent flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,38 +47,16 @@ export default function Footer() {
               Explorar
             </h3>
             <ul className="flex flex-col gap-3 font-light">
-              <li>
-                <NavLink
-                  to="/embarazo"
-                  className="hover:text-brand-accent transition-colors"
-                >
-                  Embarazo
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/bebes"
-                  className="hover:text-brand-accent transition-colors"
-                >
-                  Bebés
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/comuniones"
-                  className="hover:text-brand-accent transition-colors"
-                >
-                  Comuniones
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/navidad"
-                  className="hover:text-brand-accent transition-colors"
-                >
-                  Sesiones Navidad
-                </NavLink>
-              </li>
+              {NAV_LINKS.filter(l => l.href !== '/').map(({ name, href }) => (
+                <li key={name}>
+                  <NavLink
+                    to={href}
+                    className="hover:text-brand-accent transition-colors"
+                  >
+                    {name === 'Navidad' ? 'Sesiones Navidad' : name}
+                  </NavLink>
+                </li>
+              ))}
               <li>
                 <NavLink
                   to="/contacto"
@@ -95,41 +75,40 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-4 font-light">
               <a
-                href="http://maps.google.com/maps?q=calle+alloza+119,+castell%C3%B3n+de+la+plana"
+                href={CONTACT_INFO.addressHref}
                 target="_blank"
                 className="hover:text-brand-accent group flex items-center gap-3 transition-colors"
+                rel="noreferrer"
               >
                 <MapPin
                   size={18}
                   className="text-brand-accent transition-transform group-hover:scale-110"
                 />
-                <span>C/ Alloza 119, Castellón de la Plana</span>
+                <span>{CONTACT_INFO.address}</span>
               </a>
               <a
-                href="tel:642017128"
+                href={CONTACT_INFO.phoneHref}
                 className="hover:text-brand-accent group flex items-center gap-3 transition-colors"
               >
                 <Phone
                   size={18}
                   className="text-brand-accent transition-transform group-hover:scale-110"
                 />
-                <span>642 01 71 28</span>
+                <span>{CONTACT_INFO.phone}</span>
               </a>
               <a
-                href="mailto:denisanicoletaolteanu@gmail.com"
+                href={CONTACT_INFO.emailHref}
                 className="hover:text-brand-accent group flex items-center gap-3 transition-colors"
               >
                 <Mail
                   size={18}
                   className="text-brand-accent transition-transform group-hover:scale-110"
                 />
-                <span className="break-all">
-                  denisanicoletaolteanu@gmail.com
-                </span>
+                <span className="break-all">{CONTACT_INFO.email}</span>
               </a>
               <div className="flex items-center gap-3">
                 <Clock size={18} className="text-brand-accent" />
-                <span>L-V 10:30-14:00 | 17:00-19:30</span>
+                <span>{CONTACT_INFO.schedule}</span>
               </div>
             </div>
           </div>
@@ -137,7 +116,7 @@ export default function Footer() {
 
         <div className="text-brand-muted/60 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs tracking-widest uppercase md:flex-row">
           <p>
-            © {currentYear} Denisa Olteanu Photography. Todos los derechos
+            © {currentYear} {import.meta.env.VITE_SITE_NAME || 'Denisa Olteanu Photography'}. Todos los derechos
             reservados.
           </p>
           <div className="flex gap-6">

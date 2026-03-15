@@ -1,20 +1,13 @@
+import { useState } from 'react'
+import { NAV_LINKS } from '../constants/navigation'
+import { useEffect } from 'react'
 import { NavLink } from 'react-router'
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-
-const links = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Embarazo', href: '/embarazo' },
-  { name: 'Bebés', href: '/bebes' },
-  { name: 'Comuniones', href: '/comuniones' },
-  { name: 'Navidad', href: '/navidad' },
-  { name: 'Contacto', href: '/contacto' },
-]
+import { Menu } from 'lucide-react'
+import { X } from 'lucide-react'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -57,7 +50,7 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <ul className="hidden items-center gap-4 lg:flex">
-          {links.map(({ name, href }) => (
+          {NAV_LINKS.map(({ name, href }) => (
             <li key={name}>
               <NavLink
                 to={href}
@@ -91,7 +84,7 @@ export default function Header() {
         }`}
       >
         <div className="flex flex-col items-center gap-8">
-          {links.map(({ name, href }) => (
+          {NAV_LINKS.map(({ name, href }) => (
             <NavLink
               key={name}
               to={href}
